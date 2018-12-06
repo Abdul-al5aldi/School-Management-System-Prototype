@@ -91,7 +91,7 @@ public class LoginXController implements Initializable {
         try {
 
             Stage stage = new Stage();
-            URL url = new File("src/home.fxml").toURL();
+            URL url = new File("src/Main/home.fxml").toURL();
             Parent root = FXMLLoader.load(url);
 
             Scene scene = new Scene(root);

@@ -1,3 +1,5 @@
+package Main;
+
 
 import University.University;
 import java.io.File;
