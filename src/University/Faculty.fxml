@@ -43,7 +43,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="facTable" prefHeight="349.0" prefWidth="1066.0" stylesheets="@../css/fullpackstyling.css">
+                  <TableView fx:id="facTable" prefHeight="349.0" prefWidth="1066.0" >
                      <columns>
                         <TableColumn fx:id="name" maxWidth="4000.0" minWidth="50.0" prefWidth="319.0" text="Name" />
                         <TableColumn fx:id="department" maxWidth="1000.0" minWidth="0.0" prefWidth="92.0" text="Department" />

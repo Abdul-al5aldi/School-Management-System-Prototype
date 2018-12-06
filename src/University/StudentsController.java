@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import com.jfoenix.controls.JFXTextField;
@@ -30,13 +25,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author a_3bd
+ * FXML Controller class - Students
+ * This Class controls the functionalities of the User-Interface concerned with Students tab, in the FXML file 'Students.fxml'.
+ * The Class shows a table of the available students with their information.
+ * Provides buttons for adding new student.
+ * 
+ * @author Team-3
  */
 public class StudentsController implements Initializable {
 
-    //
     @FXML
     private TableView<Student> stuTable;
 
@@ -55,8 +52,6 @@ public class StudentsController implements Initializable {
     @FXML
     private JFXTextField searchField;
 
-    
-
     @FXML
     void addAction(ActionEvent event) {
 
@@ -67,9 +62,6 @@ public class StudentsController implements Initializable {
             final Stage dialog = new Stage();
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.initOwner(((Stage) searchField.getScene().getWindow()));
-            //VBox dialogVbox = new VBox(20);
-            //dialogVbox.getChildren().add(new Text("This is a Dialog"));
-            //Scene dialogScene = new Scene(dialogVbox, 300, 200);
             dialog.setScene(new Scene(root));
             dialog.getIcons().add(new Image("file:data/img/icon.png"));
             dialog.show();
@@ -85,38 +77,20 @@ public class StudentsController implements Initializable {
 
         try {
 
-                    //stuTable.getItems().clear();
-            //stuTable.refresh();
-            //stuTable.setItems(getStudents());
             if (AddStudentWindowController.added) {
                 stuTable.getItems().add(University.students.get(University.students.size() - 1));
             }
 
-            /*
-             for (Student ss : getStudents()) {
-
-             if (stuTable.getItems().contains(ss)) {
-             stuTable.getItems().remove(ss);
-             }
-
-             }
-             stuTable.getItems().addAll(getStudents());
-             */
         } catch (Exception e) {
 
         }
 
     }
 
-    //
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         // set up the columns:
-        //name.setCellValueFactory( new PropertyValueFactory<> ("firstName" + "middleName" + "lastName"));
         name.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         major.setCellValueFactory(new PropertyValueFactory<>("major"));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -139,11 +113,6 @@ public class StudentsController implements Initializable {
         }
 
         return s;
-    }
-
-    public void update() {
-        //stuTable.setItems(getStudents());
-
     }
 
 }

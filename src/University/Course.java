@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author abdulrhman menshawi
+ * Course class
+ * This Class has a course properties to make an objects.
+ * 
+ * @author Team-3
  */
 public class Course {
 	private String name;
@@ -25,7 +22,7 @@ public class Course {
     
    public Section addSection() {
 	   numOfSections++;
-	   Section sec = new Section(this,numOfSections);
+	   Section sec = new Section(this.name,"TBA", numOfSections);
 	   sections.add(sec);
 	   return sec;
    }

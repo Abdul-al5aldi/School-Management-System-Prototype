@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import static University.University.number_Of_Courses;
@@ -14,8 +9,10 @@ import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
- *
- * @author a_3bd
+ * This Class controls the functionalities of the User-Interface concerned with Dashboard tab, in the FXML file 'DBoard.fxml'.
+ * The class shows the numbers of existing students, faculty members, sections and courses.
+ * 
+ * @author Team-3
  */
 public class DBoardController implements Initializable {
 
@@ -24,32 +21,27 @@ public class DBoardController implements Initializable {
 
     @FXML
     private Label numOfFac;
-    
+
     @FXML
     private Label numOfSec;
-    
+
     @FXML
     private Label numOfCourses;
 
-    
-    
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
 
         numOfStu.setText(University.number_Of_Students + "");
         //numOfStu.setText(University.students.size() + "");
+
         numOfFac.setText(University.number_Of_Faculty + "");
         //numOfFac.setText(University.faculty.size() + "");
-        
+
         //numOfSec.setText(00 + "");
         numOfSec.setText(University.number_Of_Sections + "");
         //numOfSec.setText(University.sections.size() + "");
-        
-        numOfCourses.setText( University.number_Of_Courses + "");
+
+        numOfCourses.setText(University.number_Of_Courses + "");
 
     }
 

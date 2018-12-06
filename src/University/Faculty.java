@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import java.io.BufferedWriter;
@@ -11,6 +6,12 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/**
+ * Faculty class
+ * This Class has a faculty properties to make an objects.
+ * 
+ * @author Team-3
+ */
 public class Faculty {
 
     private final static File facultyFile = new File("data/faculty.txt");
@@ -22,7 +23,6 @@ public class Faculty {
     private String lastName;
     private String id;
     private String department;
-    //private Student [] advises;
     public ArrayList<Section> classes = new ArrayList<>();
 
     public Faculty() {
@@ -32,7 +32,7 @@ public class Faculty {
         lastName = "";
     }
 
-    public Faculty(String name, String ID, String department, ArrayList<Section> classes) { // to add from TXT file. //
+    public Faculty(String name, String ID, String department, ArrayList<Section> classes) { // to add from TXT file.
 
         this.title = name.substring(0, name.indexOf('.'));
 
@@ -75,9 +75,9 @@ public class Faculty {
 
         this.id = id;
         this.department = department;
-        
+
         University.faculty.add(this);
-        University.number_Of_Faculty ++;
+        University.number_Of_Faculty++;
         writeToFile();
     }
 
@@ -111,9 +111,9 @@ public class Faculty {
     public String getFullName() {
         return title + ". " + firstName + " " + middleName + " " + lastName;
     }
-    
+
     public String getSimpleName() {
-        return firstName  + " " + lastName;
+        return firstName + " " + lastName;
     }
 
     public String getDepartment() {
@@ -123,31 +123,28 @@ public class Faculty {
     public String getId() {
         return id;
     }
-    
-    
-    
-    private void writeToFile()  {
+
+    private void writeToFile() {
 
         try {
-        FileWriter fw = new FileWriter(facultyFile, true);
-        PrintWriter out = new PrintWriter(fw);
+            FileWriter fw = new FileWriter(facultyFile, true);
+            PrintWriter out = new PrintWriter(fw);
 
-        // write index
-        out.println(title + "." + firstName + " " + middleName + " " + lastName);
-        out.println(id);
-        out.println(department);
-        out.println("0");
+            // write index
+            out.println(title + "." + firstName + " " + middleName + " " + lastName);
+            out.println(id);
+            out.println(department);
+            out.println("0");
 
-        // write crns for sections for sections arrayList
-        out.close();
-                    
-        }
-        catch (Exception e) {
+            // write crns for sections for sections arrayList
+            out.close();
+
+        } catch (Exception e) {
             System.out.println("Exception at writeToFile method  - at Faculty class.");
         }
     }
-    
-    public boolean equals (Faculty f) {
+
+    public boolean equals(Faculty f) {
         return (this.id.equals(f.id));
     }
 }

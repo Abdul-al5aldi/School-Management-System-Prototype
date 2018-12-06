@@ -1,5 +1,3 @@
-
-
 package Main;
 
 import java.io.File;
@@ -11,35 +9,25 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
 public class controller extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        
         URL url = new File("src/Login/loginX.fxml").toURL();
         Parent root = FXMLLoader.load(url);
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
-        stage.getIcons().add(new Image ("file:data/img/icon.png"));
+        stage.getIcons().add(new Image("file:data/img/icon.png"));
         stage.show();
         stage.setTitle("Login");
-        
-        
-        //Login.Login ll = new Login.Login();
-        
-        //ll.start(stage);
-        
-        
-    
+
     }
-    
+
     public static void main(String[] args) {
         launch(args);
     }
-    
-    
+
 }

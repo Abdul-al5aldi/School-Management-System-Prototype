@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import University.University;
 import java.io.File;
@@ -23,39 +18,38 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author a_3bd
+ * FXML Controller class - Home
+ * This Class controls the functionalities of the User-Interface concerned with Home menu stage, in the FXML file 'Home.fxml'.
+ * The Class handles opening a new window for every tab such as dashboard, students, etc...
+ * 
+ * @author Team-3
  */
 public class HomeController implements Initializable {
-    
+
     @FXML
     private Button db_btn;
-    
+
     @FXML
     private Button stu_btn;
-    
+
     @FXML
     private Button fac_btn;
-    
+
     @FXML
     private Button cur_btn;
-    
+
     @FXML
     private Button sec_btn;
-    
+
     @FXML
     private Button set_btn;
-    
+
     @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == db_btn) {
             loadStage("University/DBoard.fxml");
-            System.out.println("Dashboard");
         } else if (mouseEvent.getSource() == stu_btn) {
-            //loadStage("/home/fxml/Students.fxml");
             loadStage("University/Students.fxml");
-            System.out.println("Dashboard");
         } else if (mouseEvent.getSource() == fac_btn) {
             loadStage("University/Faculty.fxml");
         } else if (mouseEvent.getSource() == sec_btn) {
@@ -63,18 +57,17 @@ public class HomeController implements Initializable {
         }
     }
 
-    //
     private void loadStage(String fxml) {
         try {
-            
+
             URL url = new File("src/" + fxml).toURL();
             Parent root = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
-            
+
             String title;
-            
+
             switch (fxml) {
                 case "University/DBoard.fxml":
                     title = "Dashboard";
@@ -92,30 +85,25 @@ public class HomeController implements Initializable {
                     title = "X";
             }
             stage.setTitle(title);
-                    stage.getIcons().add(new Image ("file:data/img/icon.png"));
+            stage.getIcons().add(new Image("file:data/img/icon.png"));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    //
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            
+
         try {
             University.readCourses();
             University.readSections();
             University.readFaculty();
             University.readStudents();
-            
         } catch (Exception ex) {
             System.out.println("Error in " + getClass().getName());
             System.out.println(ex.getMessage());
         }
-    }    
-    
+    }
+
 }

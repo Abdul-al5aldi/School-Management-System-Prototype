@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Student class
+ * This Class has a student properties to make an objects.
+ * 
+ * @author Team-3
+ */
 public class Student {
 
     private static ArrayList<Long> idList = new ArrayList<>();
 
-    
-    
-    String advisorName;
     String advisorId;
     private Faculty advisor;
-
-    //
-    
     String fullName;
     String firstName;
     String middleName;
@@ -31,74 +31,66 @@ public class Student {
     private final static File studentsFile = new File("data/students.txt");
 
     public Student(String name, long ID, String major, String advisorId) { // Read From File.
-    //public Student(String name, long ID, String major, Faculty advisor) { // Read From File.
 
-try {
-        name = name.trim();
-        int startSpace = name.indexOf(" ");
-        int endSpace = name.lastIndexOf(" ");
-
-        if (startSpace >= 0) {
-            firstName = name.substring(0, startSpace);
-            if (endSpace > startSpace) {
-                middleName = name.substring(startSpace + 1, endSpace);
-            }
-            lastName = name.substring(endSpace + 1, name.length());
-        }
-
-        id = ID;
-        idList.add(ID);
-        
-        this.major = major;
-        //this.advisor = advisor;
-        
-        this.advisorId = advisorId;
-        
-        this.advisor = University.getFaculty(advisorId);
-
-        //this.advisorName = University.getFaculty(advisorId).getSimpleName();
-} catch (Exception e) {
-    System.out.println("Exception at Student constructor.");
-}
-    }
-    
-
-    public Student(String name, int year, String major)  { // new Students
-
-        
         try {
-        name = name.trim();
-        
-        int startSpace = name.indexOf(" ");
-        int endSpace = name.lastIndexOf(" ");
+            name = name.trim();
+            int startSpace = name.indexOf(" ");
+            int endSpace = name.lastIndexOf(" ");
 
-        if (startSpace >= 0) {
-            firstName = name.substring(0, startSpace);
-            if (endSpace > startSpace) {
-                middleName = name.substring(startSpace + 1, endSpace);
+            if (startSpace >= 0) {
+                firstName = name.substring(0, startSpace);
+                if (endSpace > startSpace) {
+                    middleName = name.substring(startSpace + 1, endSpace);
+                }
+                lastName = name.substring(endSpace + 1, name.length());
             }
-            lastName = name.substring(endSpace + 1, name.length());
+
+            id = ID;
+            idList.add(ID);
+
+            this.major = major;
+            this.advisorId = advisorId;
+            this.advisor = University.getFaculty(advisorId);
+
+        } catch (Exception e) {
+            System.out.println("Exception at Student constructor.");
         }
+    }
 
-        this.year = year;
-        id = generateID(year * 100000);
-        this.major = major;
-        classes = new ArrayList<>();
+    public Student(String name, int year, String major) { // new Students
 
-        University.students.add(this);
-        University.number_Of_Students++;
-        writeToFile();
-        
+        try {
+            name = name.trim();
+
+            int startSpace = name.indexOf(" ");
+            int endSpace = name.lastIndexOf(" ");
+
+            if (startSpace >= 0) {
+                firstName = name.substring(0, startSpace);
+                if (endSpace > startSpace) {
+                    middleName = name.substring(startSpace + 1, endSpace);
+                }
+                lastName = name.substring(endSpace + 1, name.length());
+            }
+
+            this.year = year;
+            id = generateID(year * 100000);
+            this.major = major;
+            classes = new ArrayList<>();
+
+            University.students.add(this);
+            University.number_Of_Students++;
+            writeToFile();
+
         } catch (Exception e) {
             System.out.println("Exception at Student Class");
         }
 
     }
 
-    /*
     public boolean addToSection(Section sec) {
 
-        if (sec.getStatus().equals(Section.Status.Closed)) {
+        if (sec.getStatus().equals("Closed")) {
             return false;
         }
 
@@ -111,7 +103,7 @@ try {
         classes.add(sec);
         sec.addStudent(this);
         return true;
-    } */
+    }
 
     public boolean removeFromSection(Section sec) {
 
@@ -136,31 +128,26 @@ try {
         return id;
     }
 
-    private void writeToFile()  {
+    private void writeToFile() {
 
         try {
-            
-        FileWriter fw = new FileWriter(studentsFile, true);
-        PrintWriter out = new PrintWriter(fw);
 
-        // write index
-        out.println(firstName + " " + middleName + " " + lastName);
-        out.println(id);
-        out.println(major);
-        out.println("TBA");
-        out.println("0");
+            FileWriter fw = new FileWriter(studentsFile, true);
+            PrintWriter out = new PrintWriter(fw);
 
-        // write crns for sections for sections arrayList
-        out.close();
-                    
-        }
-        catch (Exception e) {
+            // write index
+            out.println(firstName + " " + middleName + " " + lastName);
+            out.println(id);
+            out.println(major);
+            out.println("TBA");
+            out.println("0");
+
+            // write crns for sections for sections arrayList
+            out.close();
+
+        } catch (Exception e) {
             System.out.println("Exception at writeToFile method  - at Student class.");
         }
-    }
-
-    public String toString() {
-        return ("Name: " + firstName + " " + middleName + " " + lastName + ", ID: " + id + ", Major: " + major + ", \nAdvisor: " + advisor);
     }
 
     public String getFullName() {
@@ -175,18 +162,11 @@ try {
         return id;
     }
 
-    public boolean equals (Student s) {
-        return ( this.id == (s.id));
+    public boolean equals(Student s) {
+        return (this.id == (s.id));
     }
-    
-    public String getAdvisorName() {
-        return advisorName;
-    }
-    
-    
-    public String getAdvisorId () {
+
+    public String getAdvisorId() {
         return advisorId;
     }
 }
-
-

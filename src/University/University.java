@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * University class
+ * This Class manage the connection between students, faculty members, sections and courses.
+ * The also reads the information from txt files and store them in arrays.
+ * 
+ * @author Team-3
+ */
 public class University {
 
     public static int number_Of_Students = 0;
@@ -69,37 +76,25 @@ public class University {
     }
 
     public static void readStudents() {
-        
+
         try {
-        students.clear();
-        number_Of_Students = 0;
-        Scanner fscn = new Scanner(studentsFile);
+            students.clear();
+            number_Of_Students = 0;
+            Scanner fscn = new Scanner(studentsFile);
 
-        while (fscn.hasNextLine()) {
+            while (fscn.hasNextLine()) {
 
-            String name = new String(fscn.nextLine());
-            long ID = Long.parseLong(fscn.nextLine());
-            String major = new String(fscn.nextLine());
-            String advID = (fscn.nextLine());
-            String sections = new String(fscn.nextLine()); // CRN's
+                String name = new String(fscn.nextLine());
+                long ID = Long.parseLong(fscn.nextLine());
+                String major = new String(fscn.nextLine());
+                String advID = (fscn.nextLine());
+                String sections = new String(fscn.nextLine()); // CRN's
 
-            /*
-            Faculty f = null;
-
-            for (Faculty x : faculty) {
-                if (x.getID().equals(advID)) {
-                    f = x;
-                }
+                number_Of_Students++;
+                Student s = new Student(name, ID, major, advID);
+                students.add(s);
             }
-
-            Student s = new Student(name, ID, major, f);
-                    */
-            
-            number_Of_Students++;
-            Student s = new Student(name, ID, major, advID);
-            students.add(s);
-        }
-        fscn.close();
+            fscn.close();
         } catch (Exception e) {
             System.out.println("Exception at readStudents - Uni. Class.");
         }
@@ -118,7 +113,7 @@ public class University {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Error at -readCRN- in University Class");
+            //System.out.println("Error at -readCRN- in University Class");
         }
         return classes;
 
@@ -145,50 +140,37 @@ public class University {
         fscn.close();
     }
 
-    
-    
-    
-    ////////////////////////////////////////////////////////////////////////////
-    
-    public static Course getCourse (String name) {
-        
-        
-        return null;
-    }
-    
-    
-    public static Section getSection (String CRN) {
-        
+    public static Section getSection(String CRN) {
+
         for (Section sec : sections) {
-            if (sec.getCRN().equals(CRN))
+            if (sec.getCRN().equals(CRN)) {
                 return sec;
+            }
         }
-        
+
         return null;
     }
-    
-    
-    public static Faculty getFaculty (String id) {
-        
+
+    public static Faculty getFaculty(String id) {
+
         for (Faculty fac : faculty) {
-            if (fac.getID().equals(id))
+            if (fac.getID().equals(id)) {
                 return fac;
+            }
         }
-        
+
         return null;
     }
-    
-    public static Student getStudent (String id) {
-        
+
+    public static Student getStudent(String id) {
+
         for (Student stu : students) {
-            if (stu.getId().equals(id))
+            if (stu.getId().equals(id)) {
                 return stu;
+            }
         }
-        
+
         return null;
     }
-    
-    
-    
-    
+
 }

@@ -1,24 +1,16 @@
-Mr.Sajjad Ali Mahmoud
+Dr.Hamood Ibrahim Aljamaan
+haljamaan
+SWE
+0
+Mr.Yahya Mohammad Garout
+garout
+CS
+0
+Dr.Sajjad Ali Mahmoud
 smahmoud
 SWE
 0
-Dr.Hamood Ibrahim Aljamaan
-haljamaan
-CS
-0
 Dr.Wasfi Ghassan Alkhatib
 wasfi
-CS
-0
-Dr.Adel Fadhl Ahmed
-Adelahmed
-CS
-0
-Dr.Mohamma Rabah Alshayeb
-alshayeb
-SWE
-0
-Dr.Salahadin Adam Mohammed
-adam
 CS
 0

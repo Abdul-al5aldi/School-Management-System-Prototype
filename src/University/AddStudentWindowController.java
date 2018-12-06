@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import com.jfoenix.controls.JFXTextField;
@@ -15,19 +10,17 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class - Add student window This Class controls the
+ * functionalities of the User-Interface concerned with the window of adding a
+ * new Student Member, in the FXML file 'addStudentWindow.fxml'. The class
+ * handles taking an input from user and making a new student based-on the
+ * input.
  *
- * @author a_3bd
+ * @author Team-3
  */
 public class AddStudentWindowController implements Initializable {
 
     public static boolean added = false;
-    //
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private JFXTextField fullNameField;
@@ -72,10 +65,6 @@ public class AddStudentWindowController implements Initializable {
 
     }
 
-    //
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         msgLabel.setVisible(false);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Login;
 
 import University.University;
@@ -25,8 +20,9 @@ import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
- *
- * @author a_3bd
+ * This Class controls the functionalities of the User-Interface concerned with Login, in the FXML file 'loginX.fxml'.
+ * 
+ * @author Team-3
  */
 public class LoginXController implements Initializable {
 
@@ -66,8 +62,6 @@ public class LoginXController implements Initializable {
 
     }
 
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
     private final static File loginFile = new File("data/login.txt");
 
     public static boolean loginValidation(String name, String pass) throws Exception {
@@ -95,44 +89,24 @@ public class LoginXController implements Initializable {
 
     void loadMain() {
         try {
-            //Parent parent = FXMLLoader.load(getClass().getResource("/library/assistant/ui/main/main.fxml"));
-            
-            /*
-            Main.Main m = new Main.Main();
-            Stage stage = new Stage(StageStyle.DECORATED);
-                        m.start(stage);
 
-            */
-            
-            //stage.setTitle("Ingenious Education");
-            //stage.setTitle("Home");
+            Stage stage = new Stage();
+            URL url = new File("src/home.fxml").toURL();
+            Parent root = FXMLLoader.load(url);
 
-            
-         Stage stage = new Stage();   
-        URL url = new File("src/home.fxml").toURL();
-        Parent root = FXMLLoader.load(url);
+            Scene scene = new Scene(root);
 
-        Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Home");
+            stage.getIcons().add(new Image("file:data/img/icon.png"));
+            stage.show();
 
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.getIcons().add(new Image ("file:data/img/icon.png"));
-        stage.show();
-
-        
         } catch (Exception ex) {
         }
     }
-    ////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-
         wrong.setVisible(false);
     }
 

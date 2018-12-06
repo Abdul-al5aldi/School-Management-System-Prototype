@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import com.jfoenix.controls.JFXTextField;
@@ -15,9 +10,12 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author a_3bd
+ * FXML Controller class - Add faculty window
+ * This Class controls the functionalities of the User-Interface concerned with the window of adding a new Faculty Member,
+ * in the FXML file 'addFacultyWindow.fxml'.
+ * The class handles taking an input from user and making a new faculty based-on the input.
+ * 
+ * @author Team-3
  */
 public class AddFacultyWindowController implements Initializable {
 

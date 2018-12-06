@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import com.jfoenix.controls.JFXTextField;
@@ -15,14 +10,16 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author a_3bd
+ * FXML Controller class - Add section window
+ * This Class controls the functionalities of the User-Interface concerned with the window of adding a new Section,
+ * in the FXML file 'addSectionWindow.fxml'.
+ * The class handles taking an input from user and making a new Section based-on the input.
+ * 
+ * @author Team-3
  */
 public class AddSectionWindowController implements Initializable {
 
     public static boolean added = false;
-    //     public Section(int number, String courseName, String CRN, String instructorID, String location, int max) 
 
     @FXML
     private JFXTextField courseNameField;
@@ -36,7 +33,6 @@ public class AddSectionWindowController implements Initializable {
     @FXML
     private Label msgLabel;
 
-
     @FXML
     void addAction(ActionEvent event) {
 
@@ -47,19 +43,18 @@ public class AddSectionWindowController implements Initializable {
             msgLabel.setVisible(false);
 
             int n = Integer.parseInt(maxNumberField.getText());
-            Section sec = new Section ( courseNameField.getText(), locationField.getText(), n );
+            Section sec = new Section(courseNameField.getText(), locationField.getText(), n);
             added = true;
-                      
+
             ((Stage) msgLabel.getScene().getWindow()).close();
 
-        try {
-            University.readSections();
-        } catch (Exception e) {
-        }
+            try {
+                University.readSections();
+            } catch (Exception e) {
+            }
         }
     }
 
-    
     @FXML
     void cancelAction(ActionEvent event) {
 
@@ -67,10 +62,6 @@ public class AddSectionWindowController implements Initializable {
 
     }
 
-    //
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         msgLabel.setVisible(false);

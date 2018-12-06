@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package University;
 
 import com.jfoenix.controls.JFXTextField;
@@ -27,15 +22,16 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
- * FXML Controller class
+ * FXML Controller class - Sections
+ * This Class controls the functionalities of the User-Interface concerned with Sections tab, in the FXML file 'Sections.fxml'.
+ * The Class shows a table of the available sections with their information.
+ * Provides buttons for adding new section.
  *
- * @author a_3bd
+ * 
+ * @author Team-3
  */
 public class SectionsController implements Initializable {
 
-    
-    
-    
     @FXML
     private TableView<Section> secTable;
 
@@ -60,7 +56,6 @@ public class SectionsController implements Initializable {
     @FXML
     private JFXTextField searchField;
 
-    ////
     @FXML
     void addAction(ActionEvent event) {
 
@@ -72,7 +67,7 @@ public class SectionsController implements Initializable {
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.initOwner(((Stage) searchField.getScene().getWindow()));
             dialog.setScene(new Scene(root));
-                    dialog.getIcons().add(new Image ("file:data/img/icon.png"));
+            dialog.getIcons().add(new Image("file:data/img/icon.png"));
             dialog.show();
         } catch (Exception e) {
         }
@@ -91,11 +86,7 @@ public class SectionsController implements Initializable {
         }
 
     }
-    
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -105,22 +96,12 @@ public class SectionsController implements Initializable {
         crn.setCellValueFactory(new PropertyValueFactory<>("CRN"));
         instructor.setCellValueFactory(new PropertyValueFactory<>("instructorID"));
         location.setCellValueFactory(new PropertyValueFactory<>("location"));
-        status.setCellValueFactory(new PropertyValueFactory<>("status"));     //P
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        /*
-        status.setCellFactory( new Callback<CellDataFeatures<Faculty, String>, ObservableValue<String>>() {
-            
-            public ObservableValue<String> call (CellDataFeatures<Faculty, String> fff) {
-                return new ObservableValue<String>();
-                //fff.getValue().getFullName();
-            }
-        }); */
         // load data
-        secTable.setItems(getSections());    
+        secTable.setItems(getSections());
     }
-    
-    
-    
+
     public ObservableList<Section> getSections() {
 
         ObservableList<Section> s = FXCollections.observableArrayList();
